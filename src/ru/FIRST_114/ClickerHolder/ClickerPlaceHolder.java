@@ -63,7 +63,7 @@ public class ClickerPlaceHolder extends PlaceholderExpansion {
         	try {
         			int n = Integer.parseInt(identifier.substring(3));
         			if (Main.plugin.topchik.size()>=n && n>0) {
-        				PlayerStat stat = Main.plugin.topchik.get(n).stat;
+        				PlayerStat stat = Main.plugin.topchik.get(n-1).stat;
         				String name = Bukkit.getOfflinePlayer(Main.plugin.topchik.get(n-1).id).getName();
         				
         				return name+" "+stat.score;
