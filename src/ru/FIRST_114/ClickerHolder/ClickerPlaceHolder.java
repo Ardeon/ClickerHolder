@@ -52,6 +52,9 @@ public class ClickerPlaceHolder extends PlaceholderExpansion {
         	CPlayer cp = Main.plugin.players.get(player);
             return ""+cp.stat.score;
         }
+        if(identifier.equals("timetoreward")){
+            return Main.plugin.timeToReward.getTimeToReward();
+        }
 
         // %someplugin_placeholder2%
         if(identifier.equals("coins")&&Main.plugin.players.containsKey(player)){
@@ -66,7 +69,7 @@ public class ClickerPlaceHolder extends PlaceholderExpansion {
         				PlayerStat stat = Main.plugin.topchik.get(n-1).stat;
         				String name = Bukkit.getOfflinePlayer(Main.plugin.topchik.get(n-1).id).getName();
         				
-        				return name+" "+stat.score;
+        				return "&6"+name+" &f- &e"+stat.score;
         			}
         			else
         				return "<---->";
@@ -100,7 +103,7 @@ public class ClickerPlaceHolder extends PlaceholderExpansion {
         				PlayerStat stat = Main.plugin.previousTopchik.get(n-1).stat;
         				String name = Bukkit.getOfflinePlayer(Main.plugin.previousTopchik.get(n-1).id).getName();
         				
-        				return name+" "+stat.score;
+        				return "&6"+name+" &f- &e"+stat.score;
         			}
         			else
         				return "<---->";
