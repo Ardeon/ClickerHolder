@@ -77,6 +77,22 @@ public class ClickerPlaceHolder extends PlaceholderExpansion {
         			return null;
         		}
         }
+        if(identifier.startsWith("player")){
+        	try {
+        			int n = Integer.parseInt(identifier.substring(6));
+        			if (Main.plugin.topchik.size()>=n && n>0) {
+        				String name = Bukkit.getOfflinePlayer(Main.plugin.topchik.get(n-1).id).getName();
+        				return name;
+        			}
+        			else
+        				return "<---->";
+        			
+        		}
+        		catch (NumberFormatException e)
+        		{
+        			return null;
+        		}
+        }
         // We return null if an invalid placeholder (f.e. %someplugin_placeholder3%) 
         // was provided
         return null;
