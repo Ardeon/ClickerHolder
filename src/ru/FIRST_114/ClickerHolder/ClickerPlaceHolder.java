@@ -93,6 +93,40 @@ public class ClickerPlaceHolder extends PlaceholderExpansion {
         			return null;
         		}
         }
+        if(identifier.startsWith("previoustop")){
+        	try {
+        			int n = Integer.parseInt(identifier.substring(11));
+        			if (Main.plugin.previousTopchik.size()>=n && n>0) {
+        				PlayerStat stat = Main.plugin.previousTopchik.get(n-1).stat;
+        				String name = Bukkit.getOfflinePlayer(Main.plugin.previousTopchik.get(n-1).id).getName();
+        				
+        				return name+" "+stat.score;
+        			}
+        			else
+        				return "<---->";
+        			
+        		}
+        		catch (NumberFormatException e)
+        		{
+        			return null;
+        		}
+        }
+        if(identifier.startsWith("previousplayer")){
+        	try {
+        			int n = Integer.parseInt(identifier.substring(14));
+        			if (Main.plugin.previousTopchik.size()>=n && n>0) {
+        				String name = Bukkit.getOfflinePlayer(Main.plugin.previousTopchik.get(n-1).id).getName();
+        				return name;
+        			}
+        			else
+        				return "<---->";
+        			
+        		}
+        		catch (NumberFormatException e)
+        		{
+        			return null;
+        		}
+        }
         // We return null if an invalid placeholder (f.e. %someplugin_placeholder3%) 
         // was provided
         return null;
