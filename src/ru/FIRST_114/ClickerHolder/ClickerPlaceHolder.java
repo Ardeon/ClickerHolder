@@ -52,6 +52,14 @@ public class ClickerPlaceHolder extends PlaceholderExpansion {
         	CPlayer cp = Main.plugin.players.get(player);
             return ""+cp.stat.score;
         }
+        if(identifier.equals("boost")&&Main.plugin.players.containsKey(player)){
+        	CPlayer cp = Main.plugin.players.get(player);
+            return ""+cp.stat.autoclickers;
+        }
+        if(identifier.equals("boostprice")&&Main.plugin.players.containsKey(player)){
+        	CPlayer cp = Main.plugin.players.get(player);
+            return ""+cp.stat.getBoostprice();
+        }
         if(identifier.equals("timetoreward")){
             return Main.plugin.timeToReward.getTimeToReward();
         }
