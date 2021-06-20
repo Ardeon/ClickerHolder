@@ -1,12 +1,12 @@
-package ru.FIRST_114.ClickerHolder;
+package ru.ardeon.ClickerHolder;
 
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
-import ru.FIRST_114.Clicker.Main;
-import ru.FIRST_114.Clicker.PlayerData.CPlayer;
-import ru.FIRST_114.Clicker.PlayerData.PlayerStat;
+import ru.ardeon.Clicker.Main;
+import ru.ardeon.Clicker.PlayerData.CPlayer;
+import ru.ardeon.Clicker.PlayerData.PlayerStat;
 
 public class ClickerPlaceHolder extends PlaceholderExpansion {
 
@@ -51,6 +51,14 @@ public class ClickerPlaceHolder extends PlaceholderExpansion {
         if(identifier.equals("score")&&Main.plugin.players.containsKey(player)){
         	CPlayer cp = Main.plugin.players.get(player);
             return ""+cp.stat.score;
+        }
+        if(identifier.equals("click_level")&&Main.plugin.players.containsKey(player)){
+        	CPlayer cp = Main.plugin.players.get(player);
+            return ""+(int) Math.pow(2, cp.stat.autoclickers);
+        }
+        if(identifier.equals("click_level_next")&&Main.plugin.players.containsKey(player)){
+        	CPlayer cp = Main.plugin.players.get(player);
+        	return ""+(int) Math.pow(2, cp.stat.autoclickers + 1);
         }
         if(identifier.equals("boost")&&Main.plugin.players.containsKey(player)){
         	CPlayer cp = Main.plugin.players.get(player);
